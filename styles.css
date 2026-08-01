@@ -363,6 +363,11 @@ button, input, textarea, select { font: inherit; }
 .price small { align-self: flex-end; margin: 0 0 10px 8px; color: var(--muted); font-family: "DM Sans", sans-serif; font-size: .84rem; font-weight: 600; letter-spacing: 0; }
 .price-card > p:not(.price-label) { flex: 1; color: var(--muted); }
 .price-card .button { margin-top: 20px; }
+.price-card.free-option { border: 2px solid rgba(66,200,208,.72); background: linear-gradient(180deg, #ffffff, #f4fcfd); box-shadow: 0 22px 60px rgba(16,34,54,.1); }
+.free-ribbon { display: inline-flex; align-self: flex-start; margin: -2px 0 20px; padding: 7px 12px; color: var(--navy); border-radius: 999px; background: linear-gradient(135deg, var(--cyan-bright), var(--cyan)); font-size: .68rem; font-weight: 900; letter-spacing: .11em; }
+.free-price { color: var(--navy); font-size: clamp(2.9rem, 5vw, 4.1rem); line-height: 1; letter-spacing: -.045em; }
+.price-card.free-option .button { color: var(--navy); border-color: rgba(66,200,208,.5); background: rgba(66,200,208,.1); }
+.price-card.free-option .button:hover { background: rgba(66,200,208,.18); }
 
 .about { padding-top: 34px; }
 .about-card { display: grid; grid-template-columns: 1.4fr .6fr; gap: 60px; align-items: center; padding: 64px; color: white; border-radius: 34px; background: linear-gradient(135deg, var(--navy), var(--navy-3)); box-shadow: var(--shadow); }
