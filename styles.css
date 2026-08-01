@@ -370,3 +370,94 @@ button, input, textarea, select { font: inherit; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
   .reveal { opacity: 1; transform: none; }
 }
+
+/* Founder video layout: final override */
+.founder-section .founder-grid {
+  display: grid !important;
+  grid-template-columns: 280px minmax(0, 1fr) !important;
+  gap: clamp(42px, 6vw, 76px) !important;
+  align-items: center !important;
+  max-width: 960px !important;
+  margin-inline: auto !important;
+}
+
+.founder-section .founder-video-wrap {
+  width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+}
+
+.founder-section .founder-video-card {
+  width: 100% !important;
+  max-width: 280px !important;
+  min-width: 0 !important;
+}
+
+.founder-section .founder-video-frame {
+  width: 100% !important;
+  padding: 7px !important;
+  overflow: hidden !important;
+  border-radius: 30px !important;
+  background: linear-gradient(155deg, var(--navy-3), #061725) !important;
+  box-shadow: 0 24px 58px rgba(8,30,50,.22) !important;
+}
+
+.founder-section .founder-video-frame video {
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  aspect-ratio: 9 / 16 !important;
+  object-fit: cover !important;
+  border-radius: 23px !important;
+  overflow: hidden !important;
+}
+
+.founder-section .video-caption {
+  margin-top: 14px !important;
+  text-align: center !important;
+}
+
+.founder-section .founder-signoff {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 2px !important;
+}
+
+@media (max-width: 800px) {
+  .founder-section .founder-grid {
+    grid-template-columns: 1fr !important;
+    gap: 38px !important;
+    text-align: center !important;
+  }
+
+  .founder-section .founder-video-card {
+    width: min(70vw, 260px) !important;
+    max-width: 260px !important;
+    margin-inline: auto !important;
+  }
+
+  .founder-section .founder-copy .eyebrow {
+    justify-content: center !important;
+  }
+
+  .founder-section .founder-copy > p:not(.eyebrow):not(.founder-signoff) {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .founder-section .founder-video-card {
+    width: min(74vw, 230px) !important;
+    max-width: 230px !important;
+  }
+
+  .founder-section .founder-video-frame {
+    border-radius: 26px !important;
+  }
+
+  .founder-section .founder-video-frame video {
+    border-radius: 19px !important;
+  }
+}
