@@ -368,6 +368,8 @@ button, input, textarea, select { font: inherit; }
 .free-price { color: var(--navy); font-size: clamp(2.9rem, 5vw, 4.1rem); line-height: 1; letter-spacing: -.045em; }
 .price-card.free-option .button { color: var(--navy); border-color: rgba(66,200,208,.5); background: rgba(66,200,208,.1); }
 .price-card.free-option .button:hover { background: rgba(66,200,208,.18); }
+.price-card.church-option { border-color: rgba(61,110,184,.28); background: linear-gradient(180deg, #ffffff, #f7f9fc); }
+.price-card.church-option .price-label { color: var(--navy-3); }
 
 .about { padding-top: 34px; }
 .about-card { display: grid; grid-template-columns: 1.4fr .6fr; gap: 60px; align-items: center; padding: 64px; color: white; border-radius: 34px; background: linear-gradient(135deg, var(--navy), var(--navy-3)); box-shadow: var(--shadow); }
