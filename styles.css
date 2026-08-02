@@ -571,3 +571,104 @@ button, input, textarea, select { font: inherit; }
     border-radius: 19px !important;
   }
 }
+
+
+/* Church group inquiry modal */
+.pricing-note {
+  display: block;
+  margin: -4px 0 4px;
+  color: var(--muted);
+  font-size: .82rem;
+}
+.contact-modal-open { border: 0; cursor: pointer; }
+.contact-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .22s ease, visibility .22s ease;
+}
+.contact-modal.open { opacity: 1; visibility: visible; }
+.contact-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(4, 15, 25, .76);
+  backdrop-filter: blur(7px);
+}
+.contact-modal-dialog {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 720px);
+  max-height: calc(100vh - 48px);
+  overflow-y: auto;
+  padding: clamp(30px, 5vw, 52px);
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 30px;
+  background:
+    radial-gradient(circle at 92% 8%, rgba(66,200,208,.14), transparent 30%),
+    #ffffff;
+  box-shadow: 0 36px 100px rgba(0,0,0,.36);
+}
+.contact-modal-dialog h2 {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(2rem, 4vw, 3.35rem);
+  line-height: 1.05;
+  letter-spacing: -.045em;
+}
+.contact-modal-intro { margin: 18px 0 28px; color: var(--muted); }
+.contact-modal-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  color: var(--ink);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: white;
+  cursor: pointer;
+  font-size: 1.75rem;
+  line-height: 1;
+}
+.contact-form { display: grid; gap: 20px; }
+.contact-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.contact-form label { display: grid; gap: 8px; color: var(--ink); font-weight: 700; font-size: .9rem; }
+.contact-form input, .contact-form textarea {
+  width: 100%;
+  padding: 14px 15px;
+  color: var(--ink);
+  border: 1px solid rgba(16,34,54,.16);
+  border-radius: 14px;
+  background: #f9fbfc;
+  outline: none;
+  transition: border-color .2s ease, box-shadow .2s ease, background .2s ease;
+}
+.contact-form input:focus, .contact-form textarea:focus {
+  border-color: var(--cyan);
+  background: white;
+  box-shadow: 0 0 0 4px rgba(66,200,208,.13);
+}
+.contact-form textarea { resize: vertical; min-height: 140px; }
+.contact-form-actions { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+.contact-form-status { margin: 0; color: var(--muted); font-size: .9rem; }
+.contact-form-status.success { color: #16734a; font-weight: 700; }
+.contact-form-status.error { color: #a12626; font-weight: 700; }
+.contact-honeypot { position: absolute !important; left: -9999px !important; }
+body.modal-open { overflow: hidden; }
+
+@media (max-width: 640px) {
+  .contact-modal { padding: 14px; }
+  .contact-modal-dialog { max-height: calc(100vh - 28px); padding: 34px 22px 28px; border-radius: 24px; }
+  .contact-form-grid { grid-template-columns: 1fr; gap: 16px; }
+  .contact-modal-close { top: 12px; right: 12px; width: 38px; height: 38px; }
+  .contact-form-actions { align-items: stretch; flex-direction: column; }
+  .contact-form-actions .button { width: 100%; }
+}
