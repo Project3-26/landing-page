@@ -40,6 +40,14 @@ if ('IntersectionObserver' in window) {
 const year = document.querySelector('#year');
 if (year) year.textContent = new Date().getFullYear();
 
+document.querySelectorAll('[data-scroll-top]').forEach((link) => {
+  link.addEventListener('click', (event) => {
+    event.preventDefault();
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+  });
+});
+
 
 const contactModal = document.querySelector('#contact-modal');
 const contactOpenButtons = document.querySelectorAll('[data-contact-modal-open]');
