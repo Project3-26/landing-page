@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title desc">
+  <title id="title">Project 3|26 logo mark</title>
+  <desc id="desc">A flame inside a magnifying glass.</desc>
+  <defs>
+    <linearGradient id="lens" x1="16" y1="14" x2="82" y2="84" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#46d8df"/>
+      <stop offset="1" stop-color="#3b65b1"/>
+    </linearGradient>
+    <linearGradient id="fire" x1="37" y1="22" x2="61" y2="72" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffb000"/>
+      <stop offset="1" stop-color="#f47400"/>
+    </linearGradient>
+  </defs>
+  <circle cx="48" cy="47" r="33" fill="none" stroke="url(#lens)" stroke-width="8"/>
+  <path d="M71 71 108 108" fill="none" stroke="url(#lens)" stroke-width="12" stroke-linecap="round"/>
+  <path d="M53 23c-9 10-5 17 0 23-8-3-12-10-10-18-11 10-13 23-5 32-6-2-10-8-10-14-5 13 3 25 18 25 16 0 25-14 17-27-1 8-6 13-11 15 5-12-4-18 1-36Z" fill="url(#fire)"/>
+</svg>
