@@ -54,10 +54,34 @@ const contactOpenButtons = document.querySelectorAll('[data-contact-modal-open]'
 const contactCloseButtons = document.querySelectorAll('[data-contact-modal-close]');
 const contactForm = document.querySelector('.contact-form');
 const contactStatus = document.querySelector('.contact-form-status');
+const contactEyebrow = document.querySelector('#contact-modal-eyebrow');
+const contactTitle = document.querySelector('#contact-modal-title');
+const contactIntro = document.querySelector('#contact-modal-intro');
+const interestType = document.querySelector('#interest-type');
+const contactOffer = document.querySelector('#contact-offer');
 let lastFocusedElement = null;
 
-function openContactModal() {
+const contactModalCopy = {
+  leader: {
+    eyebrow: 'Leader Plan',
+    title: 'Lead your people through the Bible—together.',
+    intro: 'Tell us a little about your group, and we’ll help you explore the Leader Plan for up to 18 people.'
+  },
+  churchwide: {
+    eyebrow: 'Churchwide access',
+    title: 'Let’s talk about your church.',
+    intro: 'Tell us a little about your church or ministry, and we’ll help you find the right Project 3|26 plan.'
+  }
+};
+
+function openContactModal(type = 'churchwide') {
   if (!contactModal) return;
+  const selection = contactModalCopy[type] || contactModalCopy.churchwide;
+  if (contactEyebrow) contactEyebrow.textContent = selection.eyebrow;
+  if (contactTitle) contactTitle.textContent = selection.title;
+  if (contactIntro) contactIntro.textContent = selection.intro;
+  if (interestType) interestType.value = type;
+  if (contactOffer) contactOffer.value = type === 'leader' ? 'leader-plan' : 'churchwide';
   lastFocusedElement = document.activeElement;
   contactModal.classList.add('open');
   contactModal.setAttribute('aria-hidden', 'false');
@@ -74,7 +98,9 @@ function closeContactModal() {
   if (lastFocusedElement) lastFocusedElement.focus();
 }
 
-contactOpenButtons.forEach((button) => button.addEventListener('click', openContactModal));
+contactOpenButtons.forEach((button) => button.addEventListener('click', () => {
+  openContactModal(button.dataset.contactType || 'churchwide');
+}));
 contactCloseButtons.forEach((button) => button.addEventListener('click', closeContactModal));
 
 document.addEventListener('keydown', (event) => {
