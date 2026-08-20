@@ -40,22 +40,6 @@ if ('IntersectionObserver' in window) {
 const year = document.querySelector('#year');
 if (year) year.textContent = new Date().getFullYear();
 
-// Free John is an app-native acquisition funnel. Preserve ad/landing attribution
-// and send people directly to the passwordless email entry instead of the legacy offer.
-document.querySelectorAll('[data-funnel-route="free-john"]').forEach((link) => {
-  const target = new URL('https://app.project326.io/start/john');
-  const inbound = new URLSearchParams(window.location.search);
-  ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'].forEach((key) => {
-    const value = inbound.get(key);
-    if (value) target.searchParams.set(key, value);
-  });
-  if (!target.searchParams.has('utm_source')) target.searchParams.set('utm_source', 'project326.io');
-  if (!target.searchParams.has('utm_medium')) target.searchParams.set('utm_medium', 'website');
-  link.href = target.toString();
-  link.target = '_self';
-  link.removeAttribute('rel');
-});
-
 document.querySelectorAll('[data-scroll-top]').forEach((link) => {
   link.addEventListener('click', (event) => {
     event.preventDefault();
