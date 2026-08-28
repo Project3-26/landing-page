@@ -488,3 +488,23 @@
 .v2-clarity.section-pad { padding-top: clamp(76px, 8vw, 110px); padding-bottom: clamp(76px, 8vw, 110px); }
 .v2-context-section .section-pad { padding-top: clamp(80px, 9vw, 120px); padding-bottom: clamp(80px, 9vw, 120px); }
 .v2-map-photo img { object-position: center 42%; }
+
+
+/* Quiet, statement-first hero. */
+.v2-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 860px);
+  justify-content: center;
+  align-content: center;
+  min-height: 690px;
+  text-align: center;
+}
+.v2-hero-copy { max-width: 860px; }
+.v2-hero-copy h1 { max-width: 850px; margin-left: auto; margin-right: auto; }
+.v2-hero-lede { max-width: 620px; margin-left: auto; margin-right: auto; }
+.v2-hero-actions { justify-content: center; }
+@media (max-width: 760px) {
+  .v2-hero { min-height: 610px; padding-top: 120px; padding-bottom: 84px; }
+  .v2-hero-copy h1 { font-size: clamp(3rem, 14vw, 4.35rem); }
+  .v2-hero-actions .button { width: min(100%, 310px); }
+}
