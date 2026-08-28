@@ -475,62 +475,9 @@
   }
 }
 
-/* Image-led V2 landing experience. */
-.visual-hero {
-  display: grid;
-  grid-template-columns: .78fr 1.22fr;
-  gap: clamp(36px, 6vw, 88px);
-  align-items: center;
-  min-height: 760px;
-  color: #fff;
-  background: radial-gradient(circle at 72% 24%, rgba(53, 205, 211, .13), transparent 30%), linear-gradient(145deg, #061725, #0b2942);
-}
 
-.visual-hero-copy { max-width: 610px; }
-.visual-hero h1 { margin: 18px 0 22px; font-size: clamp(2.8rem, 5vw, 5.5rem); line-height: .98; letter-spacing: -.055em; }
-.visual-hero h1 em { color: #5ee1e5; font-style: normal; }
-.visual-hero-copy > p:last-of-type { max-width: 540px; color: rgba(255,255,255,.72); font-size: clamp(1.08rem, 1.5vw, 1.3rem); line-height: 1.6; }
-
-.product-frame { margin: 0; overflow: hidden; border: 1px solid rgba(16, 46, 70, .13); border-radius: 26px; background: #071827; box-shadow: 0 28px 75px rgba(3, 20, 34, .2); }
-.product-frame img { display: block; width: 100%; height: auto; }
-.product-frame-hero { transform: perspective(1400px) rotateY(-3deg); border-color: rgba(255,255,255,.14); box-shadow: 0 42px 100px rgba(0,0,0,.36); }
-
-.visual-story { background: #f5f8fa; }
-.visual-intro { max-width: 850px; margin: 0 auto clamp(58px, 9vw, 110px); text-align: center; }
-.visual-intro .eyebrow { justify-content: center; }
-.visual-intro h2 { margin: 14px 0 0; color: var(--ink); font-size: clamp(2.25rem, 4.5vw, 4.5rem); line-height: 1.02; letter-spacing: -.045em; }
-
-.feature-showcase { display: grid; grid-template-columns: minmax(240px, .58fr) minmax(0, 1.42fr); gap: clamp(34px, 6vw, 84px); align-items: center; max-width: 1240px; margin: 0 auto clamp(86px, 12vw, 160px); }
-.feature-showcase:last-child { margin-bottom: 0; }
-.feature-showcase-reverse { grid-template-columns: minmax(0, 1.42fr) minmax(240px, .58fr); }
-.feature-showcase-reverse .feature-copy { order: 2; }
-.feature-showcase-reverse .product-frame { order: 1; }
-.feature-copy { max-width: 390px; }
-.feature-number { display: block; margin-bottom: 22px; color: rgba(8, 39, 62, .2); font-family: "Montserrat", sans-serif; font-size: 3.2rem; font-weight: 800; line-height: 1; }
-.feature-label { margin: 0 0 7px; color: #168b93; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
-.feature-copy h3 { margin: 0; color: var(--ink); font-size: clamp(2rem, 3.3vw, 3.45rem); line-height: 1.02; letter-spacing: -.045em; }
-.feature-copy > p:not(.feature-label) { margin: 20px 0 0; color: var(--muted); font-size: 1.08rem; line-height: 1.65; }
-.feature-copy small { display: block; margin-top: 20px; padding-top: 18px; color: #657887; border-top: 1px solid rgba(16,46,70,.12); font-size: .82rem; line-height: 1.55; }
-.product-frame-map img { aspect-ratio: 1.48 / 1; object-fit: cover; object-position: top center; }
-
-.v2-founder { background: #fff; }
-.v2-final .eyebrow { justify-content: center; }
-
-@media (max-width: 980px) {
-  .visual-hero { grid-template-columns: 1fr; min-height: auto; padding-top: 110px; }
-  .visual-hero-copy { max-width: 760px; }
-  .product-frame-hero { transform: none; }
-  .feature-showcase, .feature-showcase-reverse { grid-template-columns: 1fr; }
-  .feature-showcase-reverse .feature-copy, .feature-showcase-reverse .product-frame { order: initial; }
-  .feature-copy { max-width: 650px; }
-}
-
-@media (max-width: 640px) {
-  .visual-hero { gap: 38px; padding-top: 92px; }
-  .visual-hero h1 { font-size: clamp(2.55rem, 12vw, 3.8rem); }
-  .product-frame { border-radius: 17px; }
-  .product-frame-hero { margin-right: -28vw; }
-  .visual-story { padding-top: 76px; }
-  .feature-showcase { margin-bottom: 86px; }
-  .feature-number { margin-bottom: 14px; font-size: 2.4rem; }
-}
+/* Real John 4 Story Map in the restored first concept. */
+.v2-map-photo { padding: 0; overflow: hidden; }
+.v2-map-photo::before, .v2-map-photo::after { display: none; }
+.v2-map-photo img { display: block; width: 100%; height: 100%; min-height: 520px; object-fit: cover; object-position: center; }
+@media (max-width: 760px) { .v2-map-photo img { min-height: 360px; } }
