@@ -508,3 +508,17 @@
   .v2-hero-copy h1 { font-size: clamp(3rem, 14vw, 4.35rem); }
   .v2-hero-actions .button { width: min(100%, 310px); }
 }
+
+
+/* Keep the statement contained on narrow phones. */
+@media (max-width: 520px) {
+  .v2-hero-copy { width: 100%; min-width: 0; }
+  .v2-hero-copy h1 {
+    max-width: 100%;
+    font-size: clamp(2.65rem, 11.5vw, 3.25rem);
+    line-height: 1.04;
+    letter-spacing: -.055em;
+    overflow-wrap: normal;
+    word-break: normal;
+  }
+}
