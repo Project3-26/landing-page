@@ -522,3 +522,10 @@
     word-break: normal;
   }
 }
+
+
+/* Center the single hero action against the full mobile canvas. */
+@media (max-width: 760px) {
+  .v2-hero-actions { display: flex; width: 100%; justify-content: center; }
+  .v2-hero-actions .button { display: inline-flex; margin-inline: auto; }
+}
