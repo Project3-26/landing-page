@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://project3-26.github.io/landing-page/sitemap.xml
+Sitemap: https://project326.io/sitemap.xml
