@@ -1,3 +1,10 @@
+if (window.location.pathname.startsWith('/ph')) {
+  const phLayout = document.createElement('link');
+  phLayout.rel = 'stylesheet';
+  phLayout.href = '/ph/desktop.css?v=20260828-1';
+  document.head.appendChild(phLayout);
+}
+
 const navToggle = document.querySelector('.nav-toggle');
 const primaryNav = document.querySelector('.primary-nav');
 
