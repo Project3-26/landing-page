@@ -550,3 +550,21 @@
   .v2-pricing-action { min-width: 0; }
   .v2-pricing-action .button { width: min(100%, 310px); }
 }
+
+
+/* Full pricing ladder. */
+.v2-price-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 15px; max-width: 1200px; margin: 0 auto; }
+.v2-price-option { position: relative; display: flex; flex-direction: column; min-height: 380px; padding: 30px 26px 26px; color: var(--ink); border: 1px solid var(--border); border-radius: 24px; background: #fff; box-shadow: 0 18px 45px rgba(16,34,54,.07); }
+.v2-price-featured { color: #fff; border-color: rgba(255,255,255,.12); background: linear-gradient(145deg, #071827, #0b2c46); transform: translateY(-8px); box-shadow: 0 26px 65px rgba(7,24,39,.2); }
+.v2-price-featured .v2-pricing-label { color: var(--cyan-bright); }
+.v2-price-badge { position: absolute; top: 18px; right: 18px; padding: 6px 9px; color: #071827; border-radius: 999px; background: var(--cyan-bright); font-size: .64rem; font-weight: 900; letter-spacing: .07em; text-transform: uppercase; }
+.v2-option-price { display: block; min-height: 64px; font-family: "Montserrat", sans-serif; font-size: clamp(2.15rem, 3.1vw, 3.25rem); line-height: 1; letter-spacing: -.05em; }
+.v2-option-price span { color: var(--muted); font-family: "DM Sans", sans-serif; font-size: .78rem; font-weight: 700; letter-spacing: 0; }
+.v2-price-featured .v2-option-price span { color: rgba(255,255,255,.55); }
+.v2-option-custom { font-size: 2.25rem; }
+.v2-price-option > p:not(.v2-pricing-label) { margin: 20px 0 28px; color: var(--muted); line-height: 1.55; }
+.v2-price-featured > p:not(.v2-pricing-label) { color: rgba(255,255,255,.65); }
+.v2-price-option .button { width: 100%; margin-top: auto; text-align: center; }
+.v2-pricing-note { margin: 24px 0 0; color: var(--muted); text-align: center; font-size: .8rem; font-weight: 700; }
+@media (max-width: 1040px) { .v2-price-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .v2-price-featured { transform: none; } }
+@media (max-width: 620px) { .v2-price-grid { grid-template-columns: 1fr; } .v2-price-option { min-height: 0; } }
