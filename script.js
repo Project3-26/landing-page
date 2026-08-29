@@ -13,7 +13,7 @@ const freeJohnOfferUrl = isPhilippinesLanding
 const fullBibleOfferUrl = isPhilippinesLanding
   ? 'https://app.project326.io/api/billing/landing-checkout?market=PH'
   : 'https://app.project326.io/api/billing/landing-checkout?market=US';
-const leaderGroupOfferUrl = 'https://app.project326.io/start/john?utm_source=landing_page&utm_medium=website&utm_campaign=v2_launch&next=%2Fplans%23leader-group';
+const leaderGroupCheckoutUrl = 'https://app.project326.io/api/billing/landing-group-checkout';
 
 document.querySelectorAll('.v2-price-option').forEach((card) => {
   const label = card.querySelector('.v2-pricing-label')?.textContent?.trim().toLowerCase();
@@ -21,7 +21,20 @@ document.querySelectorAll('.v2-price-option').forEach((card) => {
   if (!label || !button) return;
   if (label === 'free john') button.href = freeJohnOfferUrl;
   if (label === 'full bible study') button.href = fullBibleOfferUrl;
-  if (label === 'leader + group') button.href = leaderGroupOfferUrl;
+  if (label === 'leader + group') {
+    button.href = leaderGroupCheckoutUrl;
+    button.addEventListener('click', (event) => {
+      event.preventDefault();
+      const groupName = window.prompt('What is the name of your church or group?');
+      if (groupName === null) return;
+      const normalized = groupName.trim().replace(/\s+/g, ' ');
+      if (normalized.length < 2) {
+        window.alert('Please enter your church or group name.');
+        return;
+      }
+      window.location.href = `${leaderGroupCheckoutUrl}?groupName=${encodeURIComponent(normalized.slice(0, 160))}`;
+    });
+  }
 });
 
 const navToggle = document.querySelector('.nav-toggle');
