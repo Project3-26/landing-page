@@ -11,8 +11,8 @@ const freeJohnOfferUrl = isPhilippinesLanding
   ? 'https://app.project326.io/start/john?utm_source=philippines&utm_medium=landing_page&utm_campaign=ph_launch'
   : 'https://app.project326.io/start/john?utm_source=landing_page&utm_medium=website&utm_campaign=v2_launch';
 const fullBibleOfferUrl = isPhilippinesLanding
-  ? 'https://app.project326.io/start/john?utm_source=philippines&utm_medium=landing_page&utm_campaign=ph_launch&next=%2Fplans%23full-bible'
-  : 'https://app.project326.io/start/john?utm_source=landing_page&utm_medium=website&utm_campaign=v2_launch&next=%2Fplans%23full-bible';
+  ? 'https://app.project326.io/api/billing/landing-checkout?market=PH'
+  : 'https://app.project326.io/api/billing/landing-checkout?market=US';
 const leaderGroupOfferUrl = 'https://app.project326.io/start/john?utm_source=landing_page&utm_medium=website&utm_campaign=v2_launch&next=%2Fplans%23leader-group';
 
 document.querySelectorAll('.v2-price-option').forEach((card) => {
