@@ -1,9 +1,28 @@
-if (window.location.pathname.startsWith('/ph')) {
+const isPhilippinesLanding = window.location.pathname.startsWith('/ph');
+
+if (isPhilippinesLanding) {
   const phLayout = document.createElement('link');
   phLayout.rel = 'stylesheet';
   phLayout.href = '/ph/desktop.css?v=20260828-1';
   document.head.appendChild(phLayout);
 }
+
+const freeJohnOfferUrl = isPhilippinesLanding
+  ? 'https://app.project326.io/start/john?utm_source=philippines&utm_medium=landing_page&utm_campaign=ph_launch'
+  : 'https://app.project326.io/start/john?utm_source=landing_page&utm_medium=website&utm_campaign=v2_launch';
+const fullBibleOfferUrl = isPhilippinesLanding
+  ? 'https://app.project326.io/start/john?utm_source=philippines&utm_medium=landing_page&utm_campaign=ph_launch&next=%2Fplans%23full-bible'
+  : 'https://app.project326.io/start/john?utm_source=landing_page&utm_medium=website&utm_campaign=v2_launch&next=%2Fplans%23full-bible';
+const leaderGroupOfferUrl = 'https://app.project326.io/start/john?utm_source=landing_page&utm_medium=website&utm_campaign=v2_launch&next=%2Fplans%23leader-group';
+
+document.querySelectorAll('.v2-price-option').forEach((card) => {
+  const label = card.querySelector('.v2-pricing-label')?.textContent?.trim().toLowerCase();
+  const button = card.querySelector('a.button');
+  if (!label || !button) return;
+  if (label === 'free john') button.href = freeJohnOfferUrl;
+  if (label === 'full bible study') button.href = fullBibleOfferUrl;
+  if (label === 'leader + group') button.href = leaderGroupOfferUrl;
+});
 
 const navToggle = document.querySelector('.nav-toggle');
 const primaryNav = document.querySelector('.primary-nav');
