@@ -21,6 +21,7 @@ document.querySelectorAll('.v2-price-option').forEach((card) => {
   if (!label || !button) return;
   if (label === 'free john') button.href = freeJohnOfferUrl;
   if (label === 'full bible study') button.href = fullBibleOfferUrl;
+  if (label === 'churchwide') button.href = '/churchwide/';
   if (label === 'leader + group') {
     button.href = leaderGroupCheckoutUrl;
     button.addEventListener('click', (event) => {
@@ -86,7 +87,6 @@ document.querySelectorAll('[data-scroll-top]').forEach((link) => {
     window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
   });
 });
-
 
 const contactModal = document.querySelector('#contact-modal');
 const contactOpenButtons = document.querySelectorAll('[data-contact-modal-open]');
