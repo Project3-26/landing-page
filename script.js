@@ -49,6 +49,14 @@ document.querySelectorAll('.v2-price-option').forEach((card) => {
   if (label === 'leader + group') button.href = leaderGroupCheckoutUrl;
 });
 
+const pricingNote = document.querySelector('.v2-pricing-note');
+if (pricingNote) {
+  pricingNote.innerHTML = pricingNote.innerHTML.replace(
+    'Podcasts are produced in Project 3|26 journey order; the complete library is not available all at once.',
+    'Teaching and podcasts are released in Project 3|26 journey order, so you can keep moving chapter by chapter as the journey unfolds.'
+  );
+}
+
 const navToggle = document.querySelector('.nav-toggle');
 const primaryNav = document.querySelector('.primary-nav');
 
