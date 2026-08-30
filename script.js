@@ -7,13 +7,37 @@ if (isPhilippinesLanding) {
   document.head.appendChild(phLayout);
 }
 
-const freeJohnOfferUrl = isPhilippinesLanding
-  ? 'https://app.project326.io/start/john?utm_source=philippines&utm_medium=landing_page&utm_campaign=ph_launch'
-  : 'https://app.project326.io/start/john?utm_source=landing_page&utm_medium=website&utm_campaign=v2_launch';
-const fullBibleOfferUrl = isPhilippinesLanding
-  ? 'https://app.project326.io/api/billing/landing-checkout?market=PH'
-  : 'https://app.project326.io/api/billing/landing-checkout?market=US';
-const leaderGroupCheckoutUrl = 'https://app.project326.io/api/billing/landing-group-checkout';
+const TRACKING_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'fbclid'];
+const inbound = new URLSearchParams(window.location.search);
+const marketKey = isPhilippinesLanding ? 'PH' : 'US';
+
+function attributedUrl(base, fallback) {
+  const url = new URL(base);
+  url.searchParams.set('market', marketKey);
+  let hasCampaignAttribution = false;
+  TRACKING_KEYS.forEach((key) => {
+    const value = inbound.get(key)?.trim();
+    if (!value) return;
+    url.searchParams.set(key, value.slice(0, 512));
+    if (key.startsWith('utm_')) hasCampaignAttribution = true;
+  });
+  if (!hasCampaignAttribution) {
+    Object.entries(fallback).forEach(([key, value]) => url.searchParams.set(key, value));
+  }
+  return url.toString();
+}
+
+const fallbackAttribution = isPhilippinesLanding
+  ? { utm_source: 'philippines', utm_medium: 'landing_page', utm_campaign: 'ph_launch' }
+  : { utm_source: 'landing_page', utm_medium: 'website', utm_campaign: 'v2_launch' };
+
+const freeJohnOfferUrl = attributedUrl('https://app.project326.io/start/john', fallbackAttribution);
+const fullBibleOfferUrl = attributedUrl('https://app.project326.io/api/billing/landing-checkout', fallbackAttribution);
+const leaderGroupCheckoutUrl = attributedUrl('https://app.project326.io/api/billing/landing-group-checkout', fallbackAttribution);
+
+document.querySelectorAll('a[href*="app.project326.io/start/john"], [data-offer="free-john"]').forEach((link) => {
+  link.href = freeJohnOfferUrl;
+});
 
 document.querySelectorAll('.v2-price-option').forEach((card) => {
   const label = card.querySelector('.v2-pricing-label')?.textContent?.trim().toLowerCase();
@@ -22,20 +46,7 @@ document.querySelectorAll('.v2-price-option').forEach((card) => {
   if (label === 'free john') button.href = freeJohnOfferUrl;
   if (label === 'full bible study') button.href = fullBibleOfferUrl;
   if (label === 'churchwide') button.href = '/churchwide/';
-  if (label === 'leader + group') {
-    button.href = leaderGroupCheckoutUrl;
-    button.addEventListener('click', (event) => {
-      event.preventDefault();
-      const groupName = window.prompt('What is the name of your church or group?');
-      if (groupName === null) return;
-      const normalized = groupName.trim().replace(/\s+/g, ' ');
-      if (normalized.length < 2) {
-        window.alert('Please enter your church or group name.');
-        return;
-      }
-      window.location.href = `${leaderGroupCheckoutUrl}?groupName=${encodeURIComponent(normalized.slice(0, 160))}`;
-    });
-  }
+  if (label === 'leader + group') button.href = leaderGroupCheckoutUrl;
 });
 
 const navToggle = document.querySelector('.nav-toggle');
