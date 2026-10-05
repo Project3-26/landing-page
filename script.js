@@ -49,6 +49,10 @@ document.querySelectorAll('.v2-price-option').forEach((card) => {
   if (label === 'leader + group') button.href = leaderGroupCheckoutUrl;
 });
 
+document.querySelectorAll('[data-offer="full-bible-annual"]').forEach((link) => {
+  link.href = attributedUrl('https://app.project326.io/api/billing/landing-checkout?billingCycle=annual', fallbackAttribution);
+});
+
 const pricingNote = document.querySelector('.v2-pricing-note');
 if (pricingNote) {
   pricingNote.innerHTML = pricingNote.innerHTML.replace(
