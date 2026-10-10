@@ -623,26 +623,3 @@
 .v2-founder-identity .founder-signoff strong { font-size:1.13rem; }
 .v2-founder-identity .founder-signoff span { display:block; line-height:1.5; }
 @media (max-width: 430px) { .v2-founder-identity { gap:15px; align-items:flex-start; } .v2-founder-photo { width:100px; height:125px; flex-basis:100px; } .v2-founder-identity .founder-signoff { font-size:.84rem; } }
-
-/* Genuine in-product still: John 1 screenshot presented as a premium device. */
-.v2-product-proof { overflow: hidden; background:linear-gradient(145deg,#f6f9fa,#eaf3f5 58%,#f9fbfc); }
-.v2-product-proof-grid { display:grid; grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr); gap:clamp(40px,7vw,100px); align-items:center; max-width:1120px; margin-inline:auto; }
-.v2-product-proof-copy h2 { max-width:630px; margin:12px 0 22px; color:var(--ink); font-family:Montserrat,sans-serif; font-size:clamp(2.15rem,3.9vw,3.95rem); line-height:1.08; letter-spacing:-.045em; }
-.v2-product-proof-copy > p:not(.eyebrow) { max-width:590px; color:var(--muted); line-height:1.7; font-size:1.06rem; }
-.v2-product-proof-highlights { display:grid; gap:17px; margin:28px 0 30px; }
-.v2-product-proof-highlights > div { display:flex; align-items:start; gap:17px; }
-.v2-product-proof-highlights > div > span { width:39px; height:39px; flex:0 0 39px; display:grid; place-items:center; border-radius:12px; color:#0e5470; background:rgba(66,200,208,.16); font-weight:800; font-size:.77rem; }
-.v2-product-proof-highlights p { display:grid; gap:4px; margin:0; }
-.v2-product-proof-highlights strong { color:var(--ink); }
-.v2-product-proof-highlights small { color:var(--muted); font-size:.91rem; line-height:1.5; }
-.v2-product-proof-copy .button { display:inline-flex; }
-.v2-product-proof-copy .v2-product-proof-note { margin-top:14px; font-size:.77rem; }
-.v2-product-proof-media { position:relative; margin:0; min-width:0; display:grid; justify-items:center; }
-.v2-product-proof-glow { position:absolute; z-index:0; width:min(110%,550px); aspect-ratio:1; top:12%; border-radius:50%; background:radial-gradient(circle,rgba(66,200,208,.22),rgba(20,65,91,.08) 55%,transparent 72%); }
-.v2-product-proof-device { position:relative; z-index:1; overflow:hidden; width:min(100%,355px); padding:10px; border-radius:37px; border:2px solid #263d4c; background:#101b24; box-shadow:0 35px 85px rgba(7,24,39,.26),inset 0 0 0 2px rgba(255,255,255,.08); }
-.v2-device-top { height:17px; display:flex; align-items:center; justify-content:center; }
-.v2-device-top span { width:68px; height:7px; border-radius:99px; background:#2b3542; }
-.v2-product-proof-device img { display:block; width:100%; height:auto; border-radius:22px 22px 27px 27px; }
-.v2-product-proof-media figcaption { position:relative; z-index:1; margin-top:16px; color:#586f7d; font-size:.79rem; font-weight:700; }
-@media(max-width:850px) { .v2-product-proof-grid { grid-template-columns:1fr; gap:40px; } .v2-product-proof-copy { max-width:650px; margin-inline:auto; } .v2-product-proof-device { width:min(80vw,340px); } }
-@media(max-width:420px) { .v2-product-proof-device { width:min(83vw,315px); } .v2-product-proof-copy h2 { font-size:clamp(2rem,10vw,2.6rem); } .v2-product-proof-highlights { gap:16px; } }
