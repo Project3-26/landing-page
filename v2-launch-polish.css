@@ -615,3 +615,11 @@
   .v2-option-price { overflow-wrap: anywhere; }
   .v2-price-option { padding: 26px 20px; }
 }
+
+/* Founder portrait complements the existing playable founder video. */
+.v2-founder-identity { display:flex; align-items:center; gap:22px; margin-top:30px; padding-top:24px; border-top:1px solid var(--border); }
+.v2-founder-photo { display:block; width:132px; height:165px; flex:0 0 132px; object-fit:cover; object-position:center top; border-radius:18px; background:#0b2238; box-shadow:0 12px 30px rgba(7,24,39,.13); }
+.v2-founder-identity .founder-signoff { margin:0; display:grid; gap:5px; min-width:0; }
+.v2-founder-identity .founder-signoff strong { font-size:1.13rem; }
+.v2-founder-identity .founder-signoff span { display:block; line-height:1.5; }
+@media (max-width: 430px) { .v2-founder-identity { gap:15px; align-items:flex-start; } .v2-founder-photo { width:100px; height:125px; flex-basis:100px; } .v2-founder-identity .founder-signoff { font-size:.84rem; } }
